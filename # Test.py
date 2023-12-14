@@ -1,4 +1,4 @@
-# Test - Write a function flip that takes a stack 
+# Practice_problem1 - Write a function flip that takes a stack 
 # as a parameter and returns a new stack in reverse order.
 # by Ana
 
@@ -13,4 +13,6 @@ def flip(stack):
 
 
 # FUNCTION CALL
-flip(Stack([1,2,3,4])).print()
+flip(Stack([1,2,3,4,5,6,7])).print()
+# OR
+flip(Stack(list(range(1,8)))).print()
