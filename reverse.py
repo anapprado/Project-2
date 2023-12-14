@@ -13,21 +13,22 @@ from Stack import Stack
 def reverse(q_orig):
     q_new = Queue()
     stack = Stack()
- 
-    while not q_orig.is_empty(): # why stack push is first?
-        stack.push(q_orig.deq())
 
+    while not q_orig.is_empty(): # entre parentese é o primeiro a acontecer
+        stack.push(q_orig.deq())
     while not stack.is_empty():
         q_new.enq(stack.pop())
 
     return q_new
 
 def main():
-    q = Queue(list(range(1, 5)))
-    q.print()
+    q_orig = Queue(list(range(1, 5)))
+
+    q_orig.print()
     print("reverse: ", end="")
-    reverse(q).print()
-    
+    reverse(q_orig).print()
+   
+
 # Don't run main on import
 if __name__ == "__main__":
     main()
