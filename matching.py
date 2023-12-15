@@ -45,3 +45,8 @@ if __name__ == "__main__":
 # ')': '(', '}': '{', ']': '[': This part of the dictionary 
 #consists of key-value pairs. The keys are the closing braces (), }, 
 # and ]), and the values are their corresponding opening braces ((, {, and [).
+
+# This checks if the popped opening brace from the stack is not 
+# equal to the expected opening brace corresponding to the current
+# closing brace (char). If they are not equal, it means there 
+# is a mismatch in the braces, and the function returns False.
