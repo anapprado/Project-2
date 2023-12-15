@@ -17,7 +17,7 @@ def matcher(input_str):
         if char in "([{":
             s.push(char)
         elif char in ")]}":
-            if s.is_empty() or s.pop() != brace_pairs[char]:
+            if s.is_empty() or s.pop() != brace_pairs[char]: #Here, brace_pairs[char] retrieves the value associated with the key char in the dictionary brace_pairs
                 return False
         
     return s.is_empty()
@@ -37,18 +37,11 @@ def main():
     print("matcher: ",matcher("((a)"))
     print("matcher: ",matcher("({)}"))
 
-
-
-
-    #print("matcher: ",matcher(" ")) # if it is empty why is true?
-
 # Don't run main on import
 if __name__ == "__main__":
     main()
 
-# This code uses the or operator to combine three conditions. 
-# It checks if either of the following conditions is true
-# The backslash \ at the end of each line is a line 
-# continuation character, indicating that the line 
-# continues to the next line. It allows you to break a long 
-# line of code into multiple lines for better readability.
+# Dictionary explanation:
+# ')': '(', '}': '{', ']': '[': This part of the dictionary 
+#consists of key-value pairs. The keys are the closing braces (), }, 
+# and ]), and the values are their corresponding opening braces ((, {, and [).
