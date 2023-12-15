@@ -8,27 +8,38 @@ from Stack import Stack
 
 # Returns True if the braces match,
 # & False otherwise
-def matcher(str):
+def matcher(input_str):
     s = Stack([])
-    for char in str:
+    brace_pairs = { ')' : '(', ']' : '[', '}' : '{' }
+
+    for char in input_str:
+
         if char in "([{":
             s.push(char)
         elif char in ")]}":
-            if  is_matching(s.pop(), char):
-                return True
+            if s.is_empty() or s.pop() != brace_pairs[char]:
+                return False
+        
     return s.is_empty()
-    
-def is_matching(open,close):
-    return(open == "(" and close == ")") or \
-          (open == "{" and close == "}") or \
-          (open == "[" and close == "]") 
-
     
 
 def main():
-    print("matcher: ", matcher("[()]"))
+    print("matcher: ",matcher("[()]"))
     print("matcher: ",matcher("[("))
     print("matcher: ",matcher("hello"))
+    print("matcher: ",matcher("(45 + 36) - 5"))
+    print("matcher: ",matcher("[()]"))
+    print("matcher: ",matcher("{[()]}"))
+    print("matcher: ",matcher("{ () [ [] ( {} ) ] }"))
+    print("matcher: ",matcher("{[()]} [ ] ( ) ([{}]) { () [ [] ( {} ) ] } ( {[()] [] } {} )"))
+    print("matcher: ",matcher("map{key[a(4)]}{b([v])}"))
+    print("matcher: ",matcher("map(ke(a(4)))(b((v)))"))
+    print("matcher: ",matcher("((a)"))
+    print("matcher: ",matcher("({)}"))
+
+
+
+
     #print("matcher: ",matcher(" ")) # if it is empty why is true?
 
 # Don't run main on import
