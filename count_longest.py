@@ -1,7 +1,7 @@
 # MODIFY ME TO IMPLEMENT YOUR SOLUTION
 # TO PROBLEM 4: COUNT THE LONGEST SUBSEQUENCE
 #
-# NAME:         FIXME
+# NAME:         Ana
 # ASSIGNMENT:   Project 2: Stacks & Queues
 
 from Queue import Queue
@@ -9,8 +9,23 @@ from Queue import Queue
 # count longest sequence of duplicates in a queue
 # can destroy the queue & make it empty
 def count_longest(q):
+# Initialize the length variable
     len = 0
-    # FIXME
+# Check if the queue is not empty
+    while not q.is_empty():
+        # Dequeue the first character from the queue
+        current_char = q.deq()
+        # Initialize variables for the current character and consecutive length
+        current_len = 1
+         # Count consecutive characters
+        while not q.is_empty() and q.front() == current_char:
+        # Dequeue the consecutive character
+            q.deq()
+        # Increment the consecutive length
+            current_len +=1
+        # Update the length if the current consecutive sequence is longer
+        len = max(len, current_len)
+    # Return the length of the longest consecutive subsequence
     return len
 
 def main():
