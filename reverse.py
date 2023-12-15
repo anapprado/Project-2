@@ -22,11 +22,10 @@ def reverse(q_orig):
     return q_new
 
 def main():
-    q_orig = Queue(list(range(1, 5)))
-
-    q_orig.print()
+    q = Queue(list(range(1,5)))
+    q.print()
     print("reverse: ", end="")
-    reverse(q_orig).print()
+    reverse(q).print()
    
 
 # Don't run main on import
