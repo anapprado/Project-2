@@ -21,7 +21,7 @@ def generate_binary_numbers(N):
     for i in range(N):
         x = t.deq() # deq tQ & add it to numbQ
         numbers.enq(x)
-        t.enq( x + "0")
+        t.enq(x + "0")
         t.enq(x + "1")
 
     return numbers
