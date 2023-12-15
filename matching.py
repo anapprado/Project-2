@@ -16,7 +16,6 @@ def matcher(str):
         elif char in ")]}":
             if  is_matching(s.pop(), char):
                 return True
-            
     return s.is_empty()
     
 def is_matching(open,close):
