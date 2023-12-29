@@ -16,6 +16,8 @@ from Stack import Stack
 
 
 def stack_first():
+    
+
     s = Stack()
     s.print()
     print("Is empty?", s.is_empty())
