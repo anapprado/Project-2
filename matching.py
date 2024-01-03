@@ -8,19 +8,34 @@ from Stack import Stack
 
 # Returns True if the braces match,
 # & False otherwise
-def matcher(input_str):
+# def matcher(input_str):
+
+def matcher(str):
     s = Stack([])
-    brace_pairs = { ')' : '(', ']' : '[', '}' : '{' }
+    braces = {'(': ')', '[': ']', '{': '}'}
 
-    for char in input_str:
-
-        if char in "([{":
+    for char in str:
+        if char in braces:
             s.push(char)
-        elif char in ")]}":
-            if s.is_empty() or s.pop() != brace_pairs[char]: #Here, brace_pairs[char] retrieves the value associated with the key char in the dictionary brace_pairs
+        elif char in braces.values():
+            if s.is_empty() or braces[s.pop()] != char:
                 return False
-        
     return s.is_empty()
+
+# or
+
+#     s = Stack([])
+#     brace_pairs = { ')' : '(', ']' : '[', '}' : '{' }
+
+#     for char in input_str:
+
+#         if char in "([{":
+#             s.push(char)
+#         elif char in ")]}":
+#             if s.is_empty() or s.pop() != brace_pairs[char]: #Here, brace_pairs[char] retrieves the value associated with the key char in the dictionary brace_pairs
+#                 return False
+        
+#     return s.is_empty()
     
 
 def main():
